@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NieR:Automata cheat code on keyboard and mouse: step-by-step PC guide</title>
+<meta name="description" content="How to enter NieR:Automata’s final cheat code (Lance McDonald’s code) on PC using a keyboard and mouse. A virtual Xbox controller, three free tools, and screenshots of every step.">
+<meta property="og:title" content="NieR:Automata cheat code on keyboard and mouse">
+<meta property="og:description" content="Step-by-step PC guide with screenshots: ViGEmBus, UCR and Interception turn a keyboard and mouse into a virtual Xbox controller the cheat code accepts.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23262520'/%3E%3Crect x='8' y='8' width='16' height='16' fill='%23dad4bc'/%3E%3C/svg%3E">
+<script>
+  /* Apply a saved theme before first paint so the page never flashes the wrong colours. */
+  (function () {
+    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Enter the NieR:Automata final cheat code with a keyboard and mouse on PC",
+  "description": "Use ViGEmBus, UCR and Interception to turn a keyboard and mouse into a virtual Xbox controller, then enter the Lance McDonald cheat code in NieR:Automata.",
+  "totalTime": "PT45M",
+  "tool": [
+    {"@type": "HowToTool", "name": "ViGEmBus"},
+    {"@type": "HowToTool", "name": "Universal Control Remapper (UCR)"},
+    {"@type": "HowToTool", "name": "Interception driver"}
+  ],
+  "step": [
+    {"@type": "HowToStep", "name": "Install ViGEmBus", "url": "#step-vigem", "text": "Download and run ViGEmBus 1.22.0 as administrator."},
+    {"@type": "HowToStep", "name": "Install UCR", "url": "#step-ucr", "text": "Download UCR v0.9.0, extract it, run UCR.exe and unblock its files."},
+    {"@type": "HowToStep", "name": "Install Interception and restart", "url": "#step-interception", "text": "Run install-interception.exe /install from an administrator terminal, then restart Windows."},
+    {"@type": "HowToStep", "name": "Create the UCR profile", "url": "#step-profile", "text": "Add your keyboard and mouse as inputs and the ViGEm Xbox 360 controller as the output."},
+    {"@type": "HowToStep", "name": "Bind the keys and block the real ones", "url": "#step-bindings", "text": "Map keys to D-pad and face buttons with Button to Button, and turn Block on."},
+    {"@type": "HowToStep", "name": "Bind the right trigger", "url": "#step-trigger", "text": "Use the single-button Button to Axis plugin and send the output to RT."},
+    {"@type": "HowToStep", "name": "Test the virtual controller", "url": "#step-test", "text": "Check every button and the trigger in the Windows game controller test."},
+    {"@type": "HowToStep", "name": "Set up NieR:Automata", "url": "#step-game", "text": "Keep Steam Input on default, use the Type A layout, and start the UCR profile only after you are in gameplay."},
+    {"@type": "HowToStep", "name": "Enter the code", "url": "#step-code", "text": "Stand between the barrels, hold R2, then press up, down, up, right, left, square, circle, triangle, cross."}
+  ]
+}
+</script>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #262520;
+    --bg-deep: #1f1e1a;
+    --panel: #34322b;
+    --panel-hi: #45423a;
+    --line: #57534a;
+    --text: #dad4bc;
+    --muted: #a8a28b;
+    --strong: #f1ebd3;
+    --bar: #d8d2ba;
+    --bar-text: #26251f;
+    --link: #e6d8a2;
+    --note: #b9b392;
+    --good: #a3bb92;
+    --warn: #d6ab5c;
+    --bad: #dc8f77;
+    --shadow: rgba(0, 0, 0, .35);
+  }
+  [data-theme="light"] {
+    color-scheme: light;
+    --bg: #cfcab0;
+    --bg-deep: #c3bea3;
+    --panel: #ddd8c1;
+    --panel-hi: #cbc6ab;
+    --line: #a09b82;
+    --text: #36342c;
+    --muted: #4d4737;
+    --strong: #1f1e18;
+    --bar: #46433a;
+    --bar-text: #e6e0c8;
+    --link: #5b4a12;
+    --note: #5d5738;
+    --good: #3f6330;
+    --warn: #7d5608;
+    --bad: #8d3a22;
+    --shadow: rgba(60, 50, 20, .25);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 1.25rem; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 1.0625rem/1.68 "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--link); text-underline-offset: .18em; }
+  a:hover { color: var(--strong); }
+  :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+  .skip { position: absolute; left: -9999px; top: 0; background: var(--bar); color: var(--bar-text); padding: .6rem 1rem; z-index: 50; }
+  .skip:focus { left: 0; }
+
+  /* ---------- masthead: echoes the game's menu frame ---------- */
+  .band {
+    height: 22px;
+    border-top: 1px solid var(--text);
+    position: relative;
+  }
+  .band::after {
+    content: "";
+    position: absolute; inset: 5px 0 0 0;
+    background: var(--muted);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='77' height='14'%3E%3Cg%3E%3Ccircle cx='38' cy='3' r='2'/%3E%3Ccircle cx='33' cy='10' r='2'/%3E%3Ccircle cx='43' cy='10' r='2'/%3E%3C/g%3E%3C/svg%3E") repeat-x center / 77px 14px;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='77' height='14'%3E%3Cg%3E%3Ccircle cx='38' cy='3' r='2'/%3E%3Ccircle cx='33' cy='10' r='2'/%3E%3Ccircle cx='43' cy='10' r='2'/%3E%3C/g%3E%3C/svg%3E") repeat-x center / 77px 14px;
+  }
+  .masthead { background: var(--bg-deep); }
+  .mast-inner { max-width: 1180px; margin: 0 auto; padding: 1.6rem 24px 2.4rem; }
+  .mast-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2.4rem; }
+  .site-name { margin: 0; font: 500 .95rem/1 "Jost", sans-serif; letter-spacing: .08em; color: var(--muted); }
+  #themeBtn {
+    font: 500 .9rem/1 "Jost", sans-serif; letter-spacing: .04em;
+    background: transparent; color: var(--text); border: 1px solid var(--line);
+    padding: .55rem .9rem; cursor: pointer; border-radius: 2px;
+  }
+  #themeBtn:hover { background: var(--bar); color: var(--bar-text); border-color: var(--bar); }
+  h1 {
+    margin: 0 0 1.1rem;
+    font: 300 clamp(1.65rem, 4.4vw, 3.1rem)/1.18 "Jost", sans-serif;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--strong);
+    max-width: 17em; text-wrap: balance;
+  }
+  .lede { max-width: 62ch; margin: 0 0 1.8rem; font-size: 1.2rem; color: var(--text); }
+  .facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px;
+    margin: 0 0 1.6rem; background: var(--line); border: 1px solid var(--line); max-width: 900px;
+  }
+  .facts div { background: var(--panel); padding: .8rem 1rem; }
+  .facts dt { font: 500 .88rem/1.2 "Jost", sans-serif; letter-spacing: .05em; color: var(--muted); margin-bottom: .25rem; }
+  .facts dd { margin: 0; color: var(--strong); line-height: 1.4; }
+  .mast-links { display: flex; flex-wrap: wrap; gap: .75rem 1.4rem; margin: 0; padding: 0; list-style: none; }
+
+  /* ---------- page grid ---------- */
+  .page { max-width: 1180px; margin: 0 auto; padding: 2.5rem 24px 4rem; display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 56px; align-items: start; }
+  .toc { position: sticky; top: 1.25rem; max-height: calc(100vh - 2.5rem); overflow: auto; }
+  .toc summary { font: 500 1rem/1 "Jost", sans-serif; letter-spacing: .08em; color: var(--muted); padding: .2rem 0 .8rem; cursor: pointer; list-style: none; }
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc ol { list-style: none; margin: 0; padding: 0; counter-reset: none; }
+  .toc a {
+    display: flex; gap: .7rem; align-items: baseline;
+    padding: .42rem .7rem; text-decoration: none; color: var(--text);
+    font: 400 .98rem/1.35 "Jost", sans-serif; border-left: 2px solid transparent;
+  }
+  .toc a::before { content: ""; flex: none; width: .5rem; height: .5rem; background: var(--muted); transform: translateY(-.08rem); }
+  .toc a:hover { background: var(--panel); }
+  .toc a.active { background: var(--bar); color: var(--bar-text); }
+  .toc a.active::before { background: var(--bar-text); }
+  .toc .group { font: 500 .85rem/1.2 "Jost", sans-serif; letter-spacing: .06em; color: var(--muted); padding: 1rem .7rem .3rem; }
+  @media (min-width: 901px) { .toc summary { pointer-events: none; } }
+
+  .content { max-width: 800px; min-width: 0; }
+  section { padding-top: .5rem; margin-bottom: 3.4rem; }
+  h2 { font: 500 1.75rem/1.25 "Jost", sans-serif; letter-spacing: .02em; color: var(--strong); margin: 0 0 1.1rem; display: flex; gap: .8rem; align-items: baseline; }
+  h2 .no {
+    flex: none; display: inline-grid; place-items: center; min-width: 2.1rem; height: 2.1rem;
+    border: 1.5px solid var(--strong); font: 500 1.05rem/1 "Jost", sans-serif; transform: translateY(-.12rem);
+  }
+  h3 { font: 500 1.2rem/1.3 "Jost", sans-serif; letter-spacing: .02em; color: var(--strong); margin: 2rem 0 .6rem; }
+  p { margin: 0 0 1rem; max-width: 70ch; }
+  ul, ol { max-width: 70ch; padding-left: 1.4rem; margin: 0 0 1.1rem; }
+  li { margin-bottom: .4rem; }
+  li > ul, li > ol { margin-top: .4rem; }
+  ol.steps { padding-left: 1.5rem; }
+  ol.steps > li::marker { font-family: "Jost", sans-serif; font-weight: 500; color: var(--muted); }
+  strong { color: var(--strong); font-weight: 600; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 2.4rem 0; }
+
+  kbd {
+    font: 500 .88em/1 "JetBrains Mono", ui-monospace, Consolas, monospace;
+    background: var(--panel-hi); border: 1px solid var(--line); border-bottom-width: 2px;
+    border-radius: 4px; padding: .12em .42em; color: var(--strong); white-space: nowrap;
+  }
+  code { font: 400 .9em "JetBrains Mono", ui-monospace, Consolas, monospace; background: var(--panel); padding: .1em .35em; border-radius: 3px; overflow-wrap: anywhere; }
+  .codeblock { position: relative; margin: 0 0 1.3rem; max-width: 100%; }
+  .codeblock pre {
+    margin: 0; padding: 1rem 5.2rem 1rem 1rem; overflow-x: auto; background: var(--bg-deep);
+    border: 1px solid var(--line); font: 400 .9rem/1.55 "JetBrains Mono", ui-monospace, Consolas, monospace; color: var(--text);
+  }
+  .copy {
+    position: absolute; top: .5rem; right: .5rem; font: 500 .82rem/1 "Jost", sans-serif; letter-spacing: .04em;
+    background: var(--panel); color: var(--text); border: 1px solid var(--line); padding: .4rem .65rem; cursor: pointer; border-radius: 2px;
+  }
+  .copy:hover { background: var(--bar); color: var(--bar-text); }
+
+  /* ---------- callouts ---------- */
+  .callout { border: 1px solid var(--line); border-left-width: 4px; background: var(--panel); padding: .85rem 1.1rem; margin: 1.3rem 0; max-width: 70ch; }
+  .callout > :last-child { margin-bottom: 0; }
+  .callout.note { border-left-color: var(--note); }
+  .callout.good { border-left-color: var(--good); }
+  .callout.warn { border-left-color: var(--warn); }
+  .callout.bad  { border-left-color: var(--bad); }
+  .callout .tag { font: 600 1rem/1.3 "Jost", sans-serif; letter-spacing: .03em; margin: 0 0 .25rem; color: var(--strong); }
+  .callout.good .tag { color: var(--good); } .callout.warn .tag { color: var(--warn); } .callout.bad .tag { color: var(--bad); }
+
+  /* ---------- tables ---------- */
+  .tbl { overflow-x: auto; margin: 0 0 1.4rem; border: 1px solid var(--line); max-width: 100%; }
+  table { border-collapse: collapse; width: 100%; font-size: .98rem; }
+  th, td { text-align: left; padding: .55rem .85rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { background: var(--panel-hi); font: 500 .95rem/1.3 "Jost", sans-serif; letter-spacing: .03em; color: var(--strong); }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--panel) 55%, transparent); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* ---------- figures ---------- */
+  .fig { margin: 1.5rem 0; }
+  .fig img { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); background: var(--panel); cursor: zoom-in; }
+  .fig figcaption { font-size: .93rem; line-height: 1.5; color: var(--muted); margin-top: .5rem; max-width: 70ch; }
+  .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin: 1.5rem 0; align-items: start; }
+  .row .fig { margin: 0; }
+  .row .fig img { width: 100%; }
+  .fig.inline img { display: inline-block; }
+
+  details { margin: 1.4rem 0; border: 1px solid var(--line); background: color-mix(in srgb, var(--panel) 45%, transparent); max-width: 100%; }
+  details > summary { cursor: pointer; padding: .8rem 1rem; font: 500 1.05rem/1.3 "Jost", sans-serif; letter-spacing: .02em; color: var(--strong); list-style: none; display: flex; gap: .7rem; align-items: baseline; }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary::before { content: "+"; flex: none; width: 1rem; font-weight: 500; color: var(--muted); }
+  details[open] > summary::before { content: "−"; }
+  details[open] > summary { border-bottom: 1px solid var(--line); }
+  details > .inner { padding: .4rem 1.1rem 1rem; }
+  details.toc { margin: 0; background: transparent; border: 0; }
+  details.toc > summary { padding: .2rem 0 .8rem; border-bottom: 0; }
+  details.toc > summary::before { content: none; }
+  details.toc[open] > summary { border-bottom: 0; }
+
+  dialog#lightbox { border: 1px solid var(--line); background: var(--bg-deep); color: var(--text); padding: 0; max-width: min(96vw, 1500px); max-height: 94vh; }
+  dialog#lightbox::backdrop { background: rgba(0, 0, 0, .78); }
+  dialog#lightbox img { display: block; max-width: 100%; max-height: 84vh; margin: 0 auto; }
+  dialog#lightbox p { margin: 0; padding: .7rem 1rem; font-size: .93rem; color: var(--muted); max-width: none; }
+
+  footer { background: var(--bg-deep); }
+  .foot-inner { max-width: 1180px; margin: 0 auto; padding: 1.8rem 24px 2.4rem; color: var(--muted); font-size: .95rem; }
+  .foot-inner p { max-width: 80ch; }
+
+  /* ---------- small screens ---------- */
+  @media (max-width: 900px) {
+    .page { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; padding-top: 1.4rem; }
+    details.toc { position: static; max-height: none; border: 1px solid var(--line); background: var(--panel); padding: .4rem .8rem; }
+    details.toc > summary { padding: .6rem 0; display: flex; gap: .7rem; }
+    details.toc > summary::before { content: "+"; width: 1rem; flex: none; }
+    details.toc[open] > summary::before { content: "\2212"; }
+    h1 { letter-spacing: .09em; }
+    h2 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<header class="masthead">
+  <div class="band" aria-hidden="true"></div>
+  <div class="mast-inner">
+    <div class="mast-top">
+      <p class="site-name">NieR:Automata PC notes</p>
+      <button id="themeBtn" type="button" aria-label="Switch between dark and light theme">Light theme</button>
+    </div>
+    <h1>The final cheat code, on keyboard and mouse</h1>
+    <p class="lede">NieR:Automata’s hidden “skip to the ending” cheat only listens to gamepad buttons. This guide shows how to give it what it wants using a keyboard, a mouse and three free tools, with a screenshot for every step.</p>
+    <dl class="facts">
+      <div><dt>Result</dt><dd>Works on PC with a virtual Xbox controller. A plain keyboard and mouse cannot enter it.</dd></div>
+      <div><dt>Tested on</dt><dd>Steam, Game of the Year edition, Windows 11, October 2026</dd></div>
+      <div><dt>Time and cost</dt><dd>About 45 minutes the first time, including one restart. Free.</dd></div>
+      <div><dt>Game files</dt><dd>Nothing in the game folder is changed.</dd></div>
+    </dl>
+    <ul class="mast-links">
+      <li><a href="https://www.youtube.com/watch?v=OqM3SmNnpwQ">How to enter master unlock code</a></li>
+      <li><a href="https://www.youtube.com/watch?v=nj95Gumb-_8">Lance McDonald’s original video</a></li>
+    </ul>
+  </div>
+  <div class="band" aria-hidden="true"></div>
+</header>
+
+<div class="page">
+  <details class="toc" open>
+    <summary>Contents</summary>
+    <nav aria-label="Guide contents">
+      <ol>
+        <li><a href="#summary">Short version</a></li>
+        <li><a href="#code">The code and where it works</a></li>
+        <li><a href="#why">Why the keyboard alone fails</a></li>
+        <li><a href="#before">Before you start</a></li>
+        <li class="group">Setup</li>
+        <li><a href="#step-vigem">1. Install ViGEmBus</a></li>
+        <li><a href="#step-ucr">2. Install UCR</a></li>
+        <li><a href="#step-interception">3. Install Interception</a></li>
+        <li><a href="#step-profile">4. Create the UCR profile</a></li>
+        <li><a href="#step-bindings">5. Bind the keys</a></li>
+        <li><a href="#step-trigger">6. Bind the right trigger</a></li>
+        <li><a href="#step-test">7. Test the controller</a></li>
+        <li class="group">In the game</li>
+        <li><a href="#step-game">8. Set up NieR:Automata</a></li>
+        <li><a href="#step-code">9. Enter the code</a></li>
+        <li><a href="#after">After the cheat</a></li>
+        <li class="group">Reference</li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#proof">Proof from the game’s code</a></li>
+        <li><a href="#cleanup">Undo everything</a></li>
+        <li><a href="#credits">Credits and disclaimer</a></li>
+      </ol>
+    </nav>
+  </details>
+
+  <main id="main" class="content">
+
+    <section id="summary">
+      <h2>Short version</h2>
+      <p>The cheat is real and it works on the PC version. The game checks it using the raw state of a gamepad, so the keyboard-and-mouse controls in the game’s own settings cannot enter it. The workaround is to make Windows believe an Xbox controller is plugged in, and to drive that controller from your keyboard and mouse.</p>
+      <p>That takes three free tools:</p>
+      <ul>
+        <li><strong>ViGEmBus</strong> creates the virtual Xbox controller.</li>
+        <li><strong>UCR (Universal Control Remapper)</strong> turns your key presses into that controller’s buttons.</li>
+        <li><strong>Interception</strong> lets UCR see your keyboard and mouse, and hide the real key presses from the game.</li>
+      </ul>
+      <p>The final trick is the right trigger. The code needs R2 (RT on Xbox) held down for the whole sequence, and the obvious way of mapping it lets go after a moment. <a href="#step-trigger">Step 6</a> shows the version that holds.</p>
+      <div class="callout good">
+        <p class="tag">What a successful run looks like</p>
+        <p>Hold the right trigger, tap nine buttons, and the screen fades to black and jumps to the final ending. That ending unlocks chapter select, the debug room and the trophy shop. At the very end the game offers to delete your save data. Say no.</p>
+      </div>
+    </section>
+
+    <section id="code">
+      <h2>The code and where it works</h2>
+      <p>The code was found by the data miner Lance McDonald in January 2021, after the game’s director hinted that a final secret was still undiscovered. It is a controller sequence: hold R2, then press the nine buttons in order.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Step</th><th>PlayStation</th><th>Xbox</th><th>Key or button used in this guide</th></tr></thead>
+        <tbody>
+          <tr><td>Hold</td><td>R2</td><td>RT</td><td>Middle mouse button</td></tr>
+          <tr><td>1</td><td>Up</td><td>D-pad up</td><td><kbd>I</kbd></td></tr>
+          <tr><td>2</td><td>Down</td><td>D-pad down</td><td><kbd>K</kbd></td></tr>
+          <tr><td>3</td><td>Up</td><td>D-pad up</td><td><kbd>I</kbd></td></tr>
+          <tr><td>4</td><td>Right</td><td>D-pad right</td><td><kbd>L</kbd></td></tr>
+          <tr><td>5</td><td>Left</td><td>D-pad left</td><td><kbd>J</kbd></td></tr>
+          <tr><td>6</td><td>Square</td><td>X</td><td><kbd>U</kbd></td></tr>
+          <tr><td>7</td><td>Circle</td><td>B</td><td><kbd>O</kbd></td></tr>
+          <tr><td>8</td><td>Triangle</td><td>Y</td><td><kbd>Y</kbd></td></tr>
+          <tr><td>9</td><td>Cross</td><td>A</td><td><kbd>H</kbd></td></tr>
+        </tbody>
+      </table></div>
+      <p class="callout note" style="padding:.85rem 1.1rem">Watch the second “up”. The code is up, down, <em>up</em>, right, left. Leaving it out is an easy mistake when copying from a short list.</p>
+      <h3>Where and when</h3>
+      <ul>
+        <li><strong>Where:</strong> the prologue, in the large open area where you fight the first boss (Marx). Stand between the two sets of three barrels.</li>
+        <li><strong>When:</strong> after Marx is defeated and the short conversation with 9S has ended, and before you walk into the factory. Lance’s video says that once the doors close and the forced fight starts, the chance is gone.</li>
+        <li><strong>How close:</strong> the game checks your distance from one spot. In our build the limit was 1.5 (Lance’s notes call these metres).</li>
+        <li><strong>How fast:</strong> Lance’s notes say the entry resets after 5 seconds. In our build the game’s timer restarted after every button press, and our successful run took 7.4 seconds from the first press to the last. About one press per second worked.</li>
+      </ul>
+      <details>
+        <summary>Lance McDonald’s original findings (screenshots from his video)</summary>
+        <div class="inner">
+          <p>These two frames are from <a href="https://www.youtube.com/watch?v=nj95Gumb-_8">Lance McDonald’s video</a> and are shown for reference. They show the cheat manager code he found in the game.</p>
+          <figure class="fig"><img src="images/lance-hex.webp" alt="Hex editor view of the game&#x27;s memory with the text g_CheatCommandManager::Update highlighted" width="869" height="756" loading="lazy"><figcaption>The highlighted text is the name of the game’s own cheat command manager. Frame from Lance McDonald’s video.</figcaption></figure>
+          <figure class="fig"><img src="images/lance-code.webp" alt="Annotated code listing from the video showing a map check, an R2 hold check, a position check with a radius, and a comparison of the last nine button presses" width="1269" height="444" loading="lazy"><figcaption>Lance’s annotated notes: the map check, the R2 hold, the position check and the nine-button comparison. The addresses and the Z value (493.69) are from his build. Ours differed, see the proof section.</figcaption></figure>
+        </div>
+      </details>
+    </section>
+
+    <section id="why">
+      <h2>Why the keyboard alone fails</h2>
+      <p>The obvious plan is to set up the keyboard so that every code button has a key. That runs into one problem straight away: R2 is Evade in the Type A layout, and the keyboard list has no Evade key.</p>
+      <figure class="fig"><img src="images/controls-type-a.webp" alt="NieR:Automata Controls screen showing the Type A gamepad layout with RT assigned to Evade" width="1400" height="786" loading="lazy"><figcaption>The Type A layout. RT is Evade, and this is the “hold R2” part of the code.</figcaption></figure>
+      <figure class="fig"><img src="images/controls-keyboard-1.webp" alt="The keyboard customisation list showing WASD movement keys with the text double-tap to evade" width="1400" height="787" loading="lazy"><figcaption>The keyboard list. Evade only exists as a double-tap on a movement key. A double-tap is a quick action, not something you can hold, and the code needs R2 held.</figcaption></figure>
+      <details>
+        <summary>The rest of the game’s keyboard list</summary>
+        <div class="inner">
+          <figure class="fig"><img src="images/controls-keyboard-2.webp" alt="Keyboard list continued: light attack, heavy attack, auto-controls, fire, pod program and light keys" width="1400" height="786" loading="lazy"><figcaption>Keyboard list, continued.</figcaption></figure>
+          <figure class="fig"><img src="images/controls-keyboard-3.webp" alt="Keyboard list continued: camera keys, with Alt for weapons, items and pods, self-destruct, walk and reset camera" width="1400" height="787" loading="lazy"><figcaption>Camera keys. Alt plus an arrow key switches weapons, items and pods.</figcaption></figure>
+          <figure class="fig"><img src="images/controls-keyboard-4.webp" alt="Keyboard list end: system menu and shortcuts keys" width="1400" height="787" loading="lazy"><figcaption>The end of the list: system menu and shortcuts.</figcaption></figure>
+        </div>
+      </details>
+      <h3>What we measured</h3>
+      <p>To check this properly we read the game’s own input values while it was running. This was read-only, and nothing was written to the game. The method and tools are in the <a href="#proof">proof section</a>.</p>
+      <ul>
+        <li>With a virtual controller running, each button produced its own distinct value, and the right trigger produced a held value.</li>
+        <li>With the keyboard only (no virtual controller), pressing the keys that switch weapons, attack, jump and so on changed nothing in those values in our test. The log was empty.</li>
+      </ul>
+      <p>That was one test session on one Steam build, so treat it as strong evidence, not a guarantee for every version of the game.</p>
+      <div class="callout note">
+        <p class="tag">Why not Steam Input?</p>
+        <p>Steam’s controller settings can remap a controller, but they need one to be connected before they open. With nothing plugged in, the screen below is all you get, and you cannot turn a keyboard into a controller from inside it.</p>
+      </div>
+      <figure class="fig"><img src="images/steam-no-controller.webp" alt="Steam&#x27;s NieR:Automata Controller Settings screen saying No controller connected" width="1267" height="789" loading="lazy"><figcaption>Steam’s controller configurator with no controller connected. F1 and Enter did nothing here.</figcaption></figure>
+    </section>
+
+    <section id="before">
+      <h2>Before you start</h2>
+      <h3>What you need</h3>
+      <ul>
+        <li>Windows 10 or 11 (64-bit), with an administrator account.</li>
+        <li>NieR:Automata on Steam. We tested the Game of the Year edition.</li>
+        <li>A keyboard and a mouse with a middle button. A side button works too.</li>
+        <li>One restart of Windows part way through.</li>
+      </ul>
+      <h3>Read these first</h3>
+      <div class="callout warn">
+        <p class="tag">Back up your saves</p>
+        <p>The cheat ends with an offer to delete your save data. Copy the folder <code>Documents\My Games\NieR_Automata</code> somewhere safe before you start, and use a new save slot for the run.</p>
+      </div>
+      <div class="callout warn">
+        <p class="tag">Interception is a driver</p>
+        <p>It watches your keyboard and mouse at a low level. That is how it can block keys, and it is also why some online games with anti-cheat refuse to run while it is installed. NieR:Automata is single-player, but if you play those games, uninstall it afterwards. <a href="#cleanup">Undo everything</a> has the steps.</p>
+      </div>
+      <div class="callout note">
+        <p class="tag">The tools are old</p>
+        <p>ViGEmBus is retired and its repository is archived. UCR’s last release is a 2020 alpha. Both still worked for us, but expect rough edges and download only from the official pages linked in each step.</p>
+      </div>
+    </section>
+
+    <section id="step-vigem">
+      <h2><span class="no">1</span>Install ViGEmBus</h2>
+      <p>ViGEmBus is the driver that creates a virtual Xbox 360 controller. UCR plugs its buttons into that controller.</p>
+      <ol class="steps">
+        <li>Open <a href="https://github.com/nefarius/ViGEmBus/releases">github.com/nefarius/ViGEmBus/releases</a>.</li>
+        <li>Under <strong>Assets</strong> on the latest release (1.22.0), download <code>ViGEmBus_1.22.0_x64_x86_arm64.exe</code>. Skip the two “Source code” files.</li>
+        <li>Right-click the downloaded file, choose <strong>Run as administrator</strong>, and click through the installer with the default options.</li>
+        <li>Restart Windows if the installer asks you to.</li>
+      </ol>
+      <figure class="fig"><img src="images/vigem-releases.webp" alt="ViGEmBus releases page on GitHub showing release 1.22.0 and its asset ViGEmBus_1.22.0_x64_x86_arm64.exe" width="1400" height="663" loading="lazy"><figcaption>The ViGEmBus release page. The banner at the top says the repository was archived on 2 November 2023, so there will be no newer version.</figcaption></figure>
+      <p>You can check the install worked in <strong>Device Manager</strong>. A ViGEm / Nefarius virtual gamepad bus should appear under System devices. UCR will also confirm it in <a href="#step-profile">step 4</a>, when the virtual controller shows up in its output list.</p>
+    </section>
+
+    <section id="step-ucr">
+      <h2><span class="no">2</span>Install UCR</h2>
+      <p>UCR (Universal Control Remapper) is the program where you say “this key presses that controller button”.</p>
+      <ol class="steps">
+        <li>Open <a href="https://github.com/Snoothy/UCR/releases">github.com/Snoothy/UCR/releases</a>.</li>
+        <li>On the latest release (v0.9.0 Alpha), download <code>UCR_v0.9.0.zip</code> from <strong>Assets</strong>.</li>
+        <li>Right-click the zip, choose <strong>Extract All</strong>, and extract to a normal folder such as your Desktop. Do not run it from inside the zip.</li>
+        <li>Open the folder and double-click <code>UCR.exe</code>.</li>
+        <li>UCR asks whether to unblock its files. Click <strong>Yes</strong>.</li>
+        <li>A console window says it unblocked the files. Press any key to close it, then double-click <code>UCR.exe</code> again.</li>
+      </ol>
+      <figure class="fig"><img src="images/ucr-releases.webp" alt="UCR releases page on GitHub with the UCR_v0.9.0.zip asset listed" width="1400" height="656" loading="lazy"><figcaption>The UCR v0.9.0 release. Download the zip, not the source code.</figcaption></figure>
+      <figure class="fig"><img src="images/ucr-unblock-prompt.webp" alt="UCR&#x27;s Unblock files dialog asking whether to unblock blocked UCR files" width="891" height="619" loading="lazy"><figcaption>The first-run prompt. Windows marks downloaded files as blocked, and UCR cannot load its plugins until they are unblocked. It only touches the UCR folder.</figcaption></figure>
+      <figure class="fig"><img src="images/ucr-unblock-done.webp" alt="Console window saying Successfully unblocked all files" width="956" height="82" loading="lazy"><figcaption>The unblocker reports success. Start UCR again after this.</figcaption></figure>
+      <figure class="fig"><img src="images/ucr-main-empty.webp" alt="UCR main window with an empty Profiles list" width="792" height="594" loading="lazy"><figcaption>UCR running with no profiles yet.</figcaption></figure>
+    </section>
+
+    <section id="step-interception">
+      <h2><span class="no">3</span>Install Interception and restart</h2>
+      <p>UCR reads keyboard and mouse input through a driver called Interception. Without it, UCR’s input list is empty. This is the step where most people get stuck, because the installer does nothing if you double-click it.</p>
+      <ol class="steps">
+        <li>Open <a href="https://github.com/oblitum/Interception">github.com/oblitum/Interception</a> and click the latest release (v1.0.1) under <strong>Releases</strong>.</li>
+        <li>Download <code>Interception.zip</code> from <strong>Assets</strong>, not the source code.</li>
+        <li>Extract it and open the <code>command line installer</code> folder inside. You should see <code>install-interception.exe</code>.</li>
+        <li>Press <kbd>Win</kbd> + <kbd>X</kbd> and choose <strong>Terminal (Admin)</strong>. Click <strong>Yes</strong> on the Windows prompt. The title bar should say <strong>Administrator</strong>.</li>
+        <li>Run the installer with <code>/install</code>. In PowerShell, which is what the admin terminal opens, the command needs an <code>&amp;</code> in front. Replace the path with your own:</li>
+      </ol>
+      <figure class="fig"><img src="images/powershell-admin.webp" alt="Windows Terminal titled Administrator: Windows PowerShell at a user folder prompt" width="540" height="151" loading="lazy"><figcaption>An elevated terminal. “Administrator” in the tab title means it has the rights the installer needs.</figcaption></figure>
+      <div class="codeblock"><pre>&amp; "C:\Users\YOU\Desktop\Interception\command line installer\install-interception.exe" /install</pre><button class="copy" type="button">Copy</button></div>
+      <p>In a plain Command Prompt, leave out the <code>&amp;</code>:</p>
+      <div class="codeblock"><pre>"C:\Users\YOU\Desktop\Interception\command line installer\install-interception.exe" /install</pre><button class="copy" type="button">Copy</button></div>
+      <p>You should see this message. <strong>Restart Windows</strong> before continuing.</p>
+      <figure class="fig"><img src="images/interception-installed.webp" alt="Administrator PowerShell showing the installer output: Interception successfully installed. You must reboot for it to take effect" width="1105" height="272" loading="lazy"><figcaption>The success message. Nothing is active until you reboot.</figcaption></figure>
+      <figure class="fig"><img src="images/interception-repo.webp" alt="Interception repository page on GitHub" width="1400" height="663" loading="lazy"><figcaption>The Interception repository. Download from here, since there is no installer to run directly.</figcaption></figure>
+      <figure class="fig"><img src="images/interception-release.webp" alt="Interception release v1.0.1 with the Interception.zip asset" width="1400" height="664" loading="lazy"><figcaption>The v1.0.1 release. The asset to download is Interception.zip.</figcaption></figure>
+      <details>
+        <summary>Common mistakes with this installer</summary>
+        <div class="inner">
+          <ul>
+            <li><strong>Double-clicking the installer.</strong> It only prints its usage text and closes. Windows may then say the program might not have installed correctly (screenshot below). Nothing was installed. Use the admin terminal.</li>
+            <li><strong>Missing the space before <code>/install</code>.</strong> Write <code>…install-interception.exe" /install</code>, with a space after the closing quote.</li>
+            <li><strong>A terminal that is not elevated.</strong> The installer needs administrator rights. Open the terminal with Win + X and Terminal (Admin).</li>
+            <li><strong>Forgetting to restart.</strong> UCR will not list your keyboard until you do.</li>
+          </ul>
+          <figure class="fig"><img src="images/interception-folder.webp" alt="File Explorer showing the command line installer folder containing install-interception" width="892" height="230" loading="lazy"><figcaption>The installer lives in the command line installer folder of the zip.</figcaption></figure>
+          <figure class="fig"><img src="images/interception-compat.webp" alt="Windows Program Compatibility Assistant saying the program might not have installed correctly" width="575" height="304" loading="lazy"><figcaption>The Compatibility Assistant message after double-clicking. Close it and use the admin terminal instead.</figcaption></figure>
+        </div>
+      </details>
+    </section>
+
+    <section id="step-profile">
+      <h2><span class="no">4</span>Create the UCR profile</h2>
+      <p>A profile says which devices UCR listens to and which virtual controller it writes to.</p>
+      <ol class="steps">
+        <li>Open <code>UCR.exe</code> and click the <strong>person with a plus</strong> icon at the top of the Profiles panel. Name the profile anything. Click it in the list.</li>
+        <li>You now see <strong>Input devices</strong> and <strong>Output devices</strong> panels. In <strong>Output devices</strong>, click <strong>+</strong>, tick <strong>ViGEm Xbox 360 Controller 1</strong> and click <strong>ADD</strong>. Pick only this one. UCR’s own wiki warns that several emulated Xbox controllers are not properly supported.</li>
+        <li>In <strong>Input devices</strong>, click <strong>+</strong>. If the list is empty, Interception is not installed or you have not restarted.</li>
+        <li>Tick your <strong>keyboard</strong> and your <strong>mouse</strong> (entries starting with <strong>K:</strong> and <strong>M:</strong>) and click <strong>ADD</strong>. Names depend on your hardware. If you are not sure which is which, add one, finish step 5, and see whether your key presses register.</li>
+        <li>Click the <strong>save</strong> icon.</li>
+      </ol>
+      <figure class="fig"><img src="images/ucr-profile-empty.webp" alt="UCR profile page with empty Input devices and Output devices panels" width="789" height="590" loading="lazy"><figcaption>A new profile, before any devices are added.</figcaption></figure>
+      <figure class="fig"><img src="images/ucr-add-output.webp" alt="Add output devices dialog listing ViGEm Xbox 360 Controllers 1 to 4 and a DS4 controller" width="795" height="598" loading="lazy"><figcaption>The output list. These virtual controllers appearing proves ViGEmBus is working.</figcaption></figure>
+      <figure class="fig"><img src="images/ucr-output-added.webp" alt="Profile page with ViGEm Xbox 360 Controller 1 listed under Output devices" width="797" height="591" loading="lazy"><figcaption>Output chosen: ViGEm Xbox 360 Controller 1.</figcaption></figure>
+      <figure class="fig"><img src="images/ucr-input-list.webp" alt="Add input devices dialog listing keyboards and mice from Core_Interception" width="795" height="599" loading="lazy"><figcaption>The input list after Interception is installed. These entries come from your own hardware.</figcaption></figure>
+      <figure class="fig"><img src="images/ucr-input-added.webp" alt="Profile page with a USB keyboard listed under Input devices and the ViGEm controller under Output devices" width="794" height="594" loading="lazy"><figcaption>Keyboard added as an input. Add your mouse the same way.</figcaption></figure>
+    </section>
+
+    <section id="step-bindings">
+      <h2><span class="no">5</span>Bind the keys, and block the real ones</h2>
+      <h3>Add one mapping per key</h3>
+      <ol class="steps">
+        <li>Open the profile editor from the icons in the profile’s header (the person-with-a-pencil icon opened it for us). The <strong>Plugins</strong> panel lists categories.</li>
+        <li>Under <strong>Button</strong>, click <strong>+</strong> next to <strong>Button to Button</strong>.</li>
+        <li>In the new mapping, click <strong>Click to bind</strong> under <strong>Input</strong> and press the key.</li>
+        <li>Under <strong>Output</strong>, click <strong>Click to bind</strong>, then choose the controller button from the menu (DPad or Buttons).</li>
+        <li>Repeat for each row below. The pencil icon on the mapping’s blue header lets you rename it.</li>
+      </ol>
+      <div class="tbl"><table>
+        <thead><tr><th>Key</th><th>Controller output</th><th>Role in the code</th></tr></thead>
+        <tbody>
+          <tr><td><kbd>I</kbd></td><td>DPad, Up</td><td>Steps 1 and 3</td></tr>
+          <tr><td><kbd>K</kbd></td><td>DPad, Down</td><td>Step 2</td></tr>
+          <tr><td><kbd>L</kbd></td><td>DPad, Right</td><td>Step 4</td></tr>
+          <tr><td><kbd>J</kbd></td><td>DPad, Left</td><td>Step 5</td></tr>
+          <tr><td><kbd>U</kbd></td><td>Buttons, X</td><td>Step 6 (Square)</td></tr>
+          <tr><td><kbd>O</kbd></td><td>Buttons, B</td><td>Step 7 (Circle). Also closes menus.</td></tr>
+          <tr><td><kbd>Y</kbd></td><td>Buttons, Y</td><td>Step 8 (Triangle)</td></tr>
+          <tr><td><kbd>H</kbd></td><td>Buttons, A</td><td>Step 9 (Cross). Also confirms in menus.</td></tr>
+          <tr><td><kbd>G</kbd></td><td>Buttons, Back</td><td>Optional. Opens the Shortcuts menu.</td></tr>
+        </tbody>
+      </table></div>
+      <figure class="fig"><img src="images/ucr-plugins.webp" alt="UCR editor Plugins panel listing Axis, Button, Filter and Event plugins" width="991" height="777" loading="lazy"><figcaption>The Plugins panel. If it is empty, UCR has no devices assigned yet, or you need to restart it after unblocking.</figcaption></figure>
+      <p>The right trigger has its own step, <a href="#step-trigger">step 6</a>, because it needs a different plugin.</p>
+
+      <h3>Turn on blocking</h3>
+      <p>With blocking off, the game receives your real key presses as well as the controller buttons. We turned blocking on while troubleshooting, and did not test the final run without it. It removes a variable, and it also stops letters appearing in other windows while the profile runs. It takes two parts.</p>
+      <ol class="steps">
+        <li>Close UCR. Open <code>UCR\Providers\Core_Interception\Settings.xml</code> in Notepad and make sure <code>BlockingEnabled</code> has the value <code>true</code>.</li>
+        <li>Start UCR and open the editor. Each input now has a <strong>Block</strong> switch. Turn it <strong>on</strong> for every key mapping.</li>
+      </ol>
+      <figure class="fig"><img src="images/settings-xml.webp" alt="Settings.xml file opened in a browser showing BlockingEnabled true, PollRate 10 and StrokeOnThread false" width="794" height="486" loading="lazy"><figcaption>Settings.xml with BlockingEnabled set to true.</figcaption></figure>
+      <figure class="fig"><img src="images/ucr-block-off.webp" alt="UCR editor showing a Keyboard to controller mapping with the Block switch turned off" width="1400" height="743" loading="lazy"><figcaption>The Block switch appears once blocking is allowed. It starts off. Turn it on for each key.</figcaption></figure>
+      <details>
+        <summary>All the mappings, with Block on</summary>
+        <div class="inner">
+          <figure class="fig"><img src="images/bind-up-down.webp" alt="UCR mappings for I to DPad Up and K to DPad Down with Block switched on" width="1256" height="908" loading="lazy"><figcaption>I to DPad Up, K to DPad Down.</figcaption></figure>
+          <figure class="fig"><img src="images/bind-left-right.webp" alt="UCR mappings for J to DPad Left and L to DPad Right with Block switched on" width="1247" height="901" loading="lazy"><figcaption>J to DPad Left, L to DPad Right.</figcaption></figure>
+          <figure class="fig"><img src="images/bind-x-b.webp" alt="UCR mappings for U to Buttons X and O to Buttons B with Block switched on" width="1245" height="914" loading="lazy"><figcaption>U to Buttons X (Square), O to Buttons B (Circle).</figcaption></figure>
+          <figure class="fig"><img src="images/bind-y-a.webp" alt="UCR mappings for Y to Buttons Y and H to Buttons A with Block switched on" width="1247" height="916" loading="lazy"><figcaption>Y to Buttons Y (Triangle), H to Buttons A (Cross).</figcaption></figure>
+          <figure class="fig"><img src="images/bind-back.webp" alt="UCR mapping for G to Buttons Back with Block switched on" width="1237" height="450" loading="lazy"><figcaption>G to Buttons Back, which opens the Shortcuts menu.</figcaption></figure>
+        </div>
+      </details>
+      <h3>Check that blocking works</h3>
+      <ol class="steps">
+        <li>Click <strong>save</strong>, then the <strong>Play</strong> button (the triangle) in UCR’s toolbar.</li>
+        <li>Open Notepad and type <kbd>I</kbd> <kbd>K</kbd> <kbd>U</kbd> <kbd>O</kbd>.</li>
+        <li><strong>Nothing should appear.</strong> If letters appear, blocking is not on. Check the file and the switches again.</li>
+      </ol>
+      <div class="fig inline"><img src="images/notepad-typing.webp" alt="Notepad showing the letters i, k, u, o typed" width="74" height="69" loading="lazy" style="image-rendering: pixelated; width: 148px; height: auto;"><figcaption>What failure looks like: the letters were typed, so blocking is off.</figcaption></div>
+    </section>
+
+    <section id="step-trigger">
+      <h2><span class="no">6</span>Bind the right trigger</h2>
+      <p>This took the longest to get right. The code needs R2 held down for the entire sequence, and the game clears its progress whenever R2 is released. The plugin you pick decides whether the virtual trigger stays down.</p>
+      <div class="callout good">
+        <p class="tag">Use this plugin</p>
+        <p>In the Plugins panel, under <strong>Axis</strong>, click <strong>+</strong> next to <strong>Button to Axis</strong> (“Map from one button to different axis values”). It is the <strong>single-button</strong> plugin. Do not use <strong>Buttons to Axis</strong> (plural) or <strong>Axis to Button</strong>.</p>
+      </div>
+      <ol class="steps">
+        <li>Add the <strong>Button to Axis</strong> mapping and rename it “right trigger” if you like.</li>
+        <li><strong>Input:</strong> choose your <strong>mouse</strong> in the device list, click <strong>Click to bind</strong>, and press the <strong>middle mouse button</strong> (or a side button). Avoid the left and right buttons, because blocking them makes the mouse awkward to use.</li>
+        <li><strong>Output:</strong> click <strong>Click to bind</strong>, choose <strong>Axes</strong>, then <strong>RT</strong>.</li>
+        <li>In the plugin’s settings, make the released value 0 and the pressed value full (100). UCR’s guide for this plugin calls them “Axis on release” and “Axis when pressed”, and its release notes mention an absolute-value option for Xbox triggers. We did not capture this settings screen, so use the test below to confirm the values.</li>
+        <li>Save, press <strong>Play</strong>, and run the test in <a href="#step-test">step 7</a>. Hold the button for ten seconds and watch the bar.</li>
+      </ol>
+      <p>What it should do: the Z Axis bar should jump to its far end when you press the button, stay there for the whole time you hold it, and return to the middle when you let go.</p>
+      <!-- TODO (author): add a screenshot of your finished Button to Axis mapping here, with the settings visible. -->
+      <div class="row">
+        <figure class="fig"><img src="images/joy-final-rest.webp" alt="Windows controller test with the Z Axis bar in the middle" width="389" height="438" loading="lazy"><figcaption>Nothing pressed: bar in the middle.</figcaption></figure>
+        <figure class="fig"><img src="images/joy-final-tap.webp" alt="Windows controller test with the Z Axis bar partway across" width="393" height="443" loading="lazy"><figcaption>A quick tap.</figcaption></figure>
+        <figure class="fig"><img src="images/joy-final-hold.webp" alt="Windows controller test with the Z Axis bar at the far left end after holding the button for ten seconds" width="390" height="447" loading="lazy"><figcaption>Held ten seconds: the bar goes to the far end and stays.</figcaption></figure>
+      </div>
+      <details>
+        <summary>What did not work, with the evidence</summary>
+        <div class="inner">
+          <p>The first attempt used the two-button <strong>Buttons to Axis</strong> plugin with <kbd>Z</kbd> as the “high” key. R2 registered for a moment and then released while the key was still down. We ran three tests to find out why. In every one the bar went to the end on the press and drifted back to the middle during the hold.</p>
+          <h3>Wrong plugin: Axis to Button</h3>
+          <figure class="fig"><img src="images/trigger-wrong-axis-to-button.webp" alt="UCR Axis to Button mapping whose input is an axis, so a keyboard key cannot be bound" width="1267" height="529" loading="lazy"><figcaption>Axis to Button expects a joystick axis as input, so pressing a key does nothing. It does the opposite of what we need.</figcaption></figure>
+          <h3>Two-button plugin with a key</h3>
+          <figure class="fig"><img src="images/trigger-buttons-to-axis-rt.webp" alt="UCR Buttons to Axis mapping with the output menu open showing the axes LX, LY, RX, RY, LT and RT" width="1255" height="483" loading="lazy"><figcaption>Buttons to Axis with Z on High and RT as the output. This looks right but lets go while the key is held.</figcaption></figure>
+          <div class="row">
+            <figure class="fig"><img src="images/joy-z-rest.webp" alt="Controller test with the Z Axis bar in the middle" width="385" height="445" loading="lazy"><figcaption>Z key: at rest.</figcaption></figure>
+            <figure class="fig"><img src="images/joy-z-tap.webp" alt="Controller test with the Z Axis bar short after a tap of the Z key" width="393" height="445" loading="lazy"><figcaption>Z key: tapped.</figcaption></figure>
+            <figure class="fig"><img src="images/joy-z-hold.webp" alt="Controller test with the Z Axis bar back in the middle while the Z key is held" width="394" height="446" loading="lazy"><figcaption>Z key: held, and the bar has come back.</figcaption></figure>
+          </div>
+          <h3>Same plugin with Left Shift (rules out key auto-repeat?)</h3>
+          <p>We suspected Windows’ key repeat. Left Shift, which does not auto-repeat the same way, behaved identically.</p>
+          <div class="row">
+            <figure class="fig"><img src="images/joy-shift-rest.webp" alt="Controller test with the Z Axis bar in the middle" width="393" height="446" loading="lazy"><figcaption>Left Shift: at rest.</figcaption></figure>
+            <figure class="fig"><img src="images/joy-shift-tap.webp" alt="Controller test with the Z Axis bar short after a tap of Left Shift" width="391" height="446" loading="lazy"><figcaption>Left Shift: tapped.</figcaption></figure>
+            <figure class="fig"><img src="images/joy-shift-hold.webp" alt="Controller test with the Z Axis bar back in the middle while Left Shift is held" width="391" height="446" loading="lazy"><figcaption>Left Shift: held, bar back in the middle.</figcaption></figure>
+          </div>
+          <h3>Same plugin with a mouse button (no key repeat at all)</h3>
+          <p>A mouse button cannot auto-repeat, and it still released. That pointed at the plugin, not the keyboard.</p>
+          <figure class="fig"><img src="images/mouse-binding.webp" alt="UCR mapping called right trigger with the middle mouse button as the high input and Axes RT as the output, using the two-button Buttons to Axis plugin" width="1247" height="532" loading="lazy"><figcaption>The two-button version with the middle mouse button bound. It looks right but still let go.</figcaption></figure>
+          <div class="row">
+            <figure class="fig"><img src="images/joy-mouse-old-rest.webp" alt="Controller test with the Z Axis bar in the middle" width="391" height="444" loading="lazy"><figcaption>Middle mouse: at rest.</figcaption></figure>
+            <figure class="fig"><img src="images/joy-mouse-old-tap.webp" alt="Controller test with the Z Axis bar short after a tap of the middle mouse button" width="397" height="448" loading="lazy"><figcaption>Middle mouse: tapped.</figcaption></figure>
+            <figure class="fig"><img src="images/joy-mouse-old-hold.webp" alt="Controller test with the Z Axis bar back in the middle while the middle mouse button is held" width="388" height="448" loading="lazy"><figcaption>Middle mouse: held, bar back in the middle.</figcaption></figure>
+          </div>
+          <p>Switching to the single-button <strong>Button to Axis</strong> plugin fixed it.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="step-test">
+      <h2><span class="no">7</span>Test the virtual controller</h2>
+      <p>Test outside the game first. It is quicker to fix things here.</p>
+      <ol class="steps">
+        <li>In UCR, press <strong>Play</strong> on your profile. The virtual controller only exists while a profile is running.</li>
+        <li>Press <kbd>Win</kbd> + <kbd>R</kbd>, type <code>joy.cpl</code> and press Enter.</li>
+        <li>You should see <strong>Controller (XBOX 360 For Windows)</strong> with status OK. Select it and click <strong>Properties</strong>, then open the <strong>Test</strong> tab.</li>
+        <li>Press each key and check it lights the matching item (see the table). Hold the trigger button for ten seconds and watch the Z Axis bar.</li>
+      </ol>
+      <figure class="fig"><img src="images/joy-device-ok.webp" alt="Windows Game Controllers window listing Controller (XBOX 360 For Windows) with status OK" width="368" height="314" loading="lazy"><figcaption>The virtual controller is visible to Windows while the profile runs.</figcaption></figure>
+      <figure class="fig"><img src="images/joy-test-rest.webp" alt="Windows controller Test tab with all buttons unlit and the axis bars in the middle" width="386" height="446" loading="lazy"><figcaption>The Test tab at rest. Nothing is lit and the axis bars sit in the middle.</figcaption></figure>
+      <div class="tbl"><table>
+        <thead><tr><th>Press</th><th>Expect on the Test tab</th></tr></thead>
+        <tbody>
+          <tr><td><kbd>I</kbd> <kbd>K</kbd> <kbd>J</kbd> <kbd>L</kbd></td><td>The Point of View Hat moves up, down, left, right</td></tr>
+          <tr><td><kbd>U</kbd> <kbd>O</kbd> <kbd>Y</kbd> <kbd>H</kbd></td><td>One numbered button lights each time</td></tr>
+          <tr><td>Middle mouse (held)</td><td>The Z Axis bar goes to one end and stays there</td></tr>
+        </tbody>
+      </table></div>
+      <p>If the Test tab does not react while Notepad has focus, that is normal. The test window needs to be in front.</p>
+    </section>
+
+    <section id="step-game">
+      <h2><span class="no">8</span>Set up NieR:Automata</h2>
+      <h3>Settings that matter</h3>
+      <ul>
+        <li><strong>Steam Input:</strong> in Steam, right-click NieR:Automata, choose Properties, then Controller, and leave the override on <strong>Use default settings</strong>. We set it back to default after trying Enable, and did not test whether Enable breaks the code.</li>
+        <li><strong>Special K / FAR:</strong> we ran with it turned off, by renaming <code>dxgi.dll</code> to <code>dxgi.dll.off</code> in the game folder. We turned it off to remove a variable and did not test whether it matters.</li>
+        <li><strong>Controls:</strong> use the <strong>Type A</strong> layout.</li>
+        <li><strong>Stop 2B from dodging.</strong> In <strong>Controls</strong>, choose <strong>Custom</strong>, and give RT a harmless function, for example by swapping Evade with Toggle Light. Do the same for X and Y if you find the attacks move 2B, for example with Lock-on and Reset Camera. When R2 goes down, 2B would otherwise dodge straight out of the circle.</li>
+        <li><strong>Use a new save slot.</strong> Start a fresh game, because you will need to play the prologue anyway and the code may end with a deletion offer.</li>
+      </ul>
+      <figure class="fig"><img src="images/steam-input-default.webp" alt="Steam Properties Controller page with the NieR:Automata override set to Use default settings" width="820" height="543" loading="lazy"><figcaption>Steam Input override on “Use default settings”.</figcaption></figure>
+      <figure class="fig"><img src="images/game-folder-specialk-off.webp" alt="NieR:Automata install folder showing dxgi.dll.off, a renamed Special K DLL" width="889" height="607" loading="lazy"><figcaption>The game folder (Steam: Manage, Browse local files). dxgi.dll.off is Special K renamed so it does not load.</figcaption></figure>
+      <figure class="fig"><img src="images/load-game-lance.webp" alt="NieR:Automata Load Game screen with three save slots including a new empty game named Lance_McDonald" width="1400" height="787" loading="lazy"><figcaption>A fresh save slot for the cheat run.</figcaption></figure>
+      <h3>The order matters</h3>
+      <p>Once the game sees the virtual controller, it stops listening to the keyboard and mouse. We could not even press <kbd>Esc</kbd> in the game afterwards. If you start the profile first, the menu may refuse to close. So do it in this order:</p>
+      <ol class="steps">
+        <li>Open UCR and make sure the profile is <strong>stopped</strong>.</li>
+        <li>Start NieR:Automata and play the prologue with the keyboard and mouse until you are in position (<a href="#step-code">step 9</a>).</li>
+        <li>Alt+Tab to UCR, press <strong>Play</strong>, and Alt+Tab back.</li>
+        <li>The game pauses when it loses focus, so its menu is showing. Press <kbd>O</kbd> (the controller’s B) to close it. If you cannot close it, press <strong>Stop</strong> in UCR and the keyboard comes back.</li>
+      </ol>
+    </section>
+
+    <section id="step-code">
+      <h2><span class="no">9</span>Enter the code</h2>
+      <ol class="steps">
+        <li>Beat Marx, watch the short 9S conversation, and walk 2B to the spot between the two sets of three barrels. Stand still. Do not walk into the factory.</li>
+        <li>Start the UCR profile, return to the game and close the menu, as in step 8.</li>
+        <li><strong>Press and hold the middle mouse button</strong> (R2).</li>
+        <li>About one second later, with R2 still held, tap <kbd>I</kbd> <kbd>K</kbd> <kbd>I</kbd> <kbd>L</kbd> <kbd>J</kbd> <kbd>U</kbd> <kbd>O</kbd> <kbd>Y</kbd> <kbd>H</kbd>, roughly one per second.</li>
+        <li>Keep holding the middle button for a few more seconds, until the screen fades to black.</li>
+      </ol>
+      <figure class="fig"><img src="images/barrels-attempt.webp" alt="2B standing between two sets of three barrels in the prologue arena with her pod hovering behind her" width="1400" height="787" loading="lazy"><figcaption>The spot: 2B between the two sets of three barrels.</figcaption></figure>
+      <div class="callout note">
+        <p class="tag">How our successful run went</p>
+        <p>R2 went down at 2.1 seconds. The nine buttons followed from 4.0 to 11.3 seconds, roughly one a second, and the game started loading the ending at 13.9 seconds. The full log is in the <a href="#proof">proof section</a>.</p>
+      </div>
+      <p>Do not use the pause menu trick from Lance’s video. On our setup, the Shortcuts menu closes when you press B, and the code needs B as button seven.</p>
+    </section>
+
+    <section id="after">
+      <h2>After the cheat</h2>
+      <div class="callout bad">
+        <p class="tag">Decline any prompt about deleting your save data</p>
+        <p>At the end of the ending sequence the game asks whether to delete your save data to help other players. Say no. It is a real deletion. Back up <code>Documents\My Games\NieR_Automata</code> first anyway.</p>
+      </div>
+      <p>Other players report that declining keeps everything. <a href="https://twinfinite.net/guides/nier-automata-how-to-use-cheat-codes-to-skip-to-the-ending/">Twinfinite</a> says that keeping your save keeps chapter select, the debug room and the post-game bonuses. <a href="https://kotaku.com/nier-automata-dumped-me-and-i-m-okay-with-it-1846036247">Kotaku</a> says there is no penalty for not deleting. One <a href="https://steamcommunity.com/app/524220/discussions/0/135512625256586835">Steam discussion</a> reports the deletion request only appears if you choose to leave a message for other players.</p>
+      <h3>Getting back to the barrels</h3>
+      <p>The prologue cannot be saved, so to try again you either start another new game or use chapter select. Lance’s video says that, once chapter select is unlocked, chapter <strong>1-2_3</strong> (“2B inside the factory”) skips to this part. We have not tested where that chapter starts, so check that you arrive before the 9S conversation.</p>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Troubleshooting</h2>
+      <div class="tbl"><table>
+        <thead><tr><th>What you see</th><th>Likely cause</th><th>What to do</th></tr></thead>
+        <tbody>
+          <tr><td>UCR’s input list is empty</td><td>Interception is not installed, or you have not restarted</td><td><a href="#step-interception">Step 3</a>. Use an admin terminal with <code>/install</code> and restart.</td></tr>
+          <tr><td>Plugins panel is empty</td><td>No devices are assigned to the profile, or the files were not unblocked</td><td><a href="#step-ucr">Step 2</a> and <a href="#step-profile">step 4</a>. Restart UCR.</td></tr>
+          <tr><td>Letters appear in Notepad while the profile runs</td><td>Blocking is off</td><td><a href="#step-bindings">Step 5</a>: set <code>BlockingEnabled</code> to true and switch Block on for each key.</td></tr>
+          <tr><td>Keyboard and mouse stop working in the game</td><td>Expected: the game ignores them once it sees the virtual controller</td><td>Use <kbd>I</kbd> <kbd>K</kbd> <kbd>J</kbd> <kbd>L</kbd> to navigate, <kbd>H</kbd> to confirm, <kbd>O</kbd> to go back. Or press Stop in UCR.</td></tr>
+          <tr><td>The trigger bar drifts back to the middle while held</td><td>Wrong plugin</td><td><a href="#step-trigger">Step 6</a>: use the single-button Button to Axis.</td></tr>
+          <tr><td>2B dodges or lunges when you press R2 or attack</td><td>She leaves the 1.5 m circle</td><td><a href="#step-game">Step 8</a>: use the Custom layout so RT, X and Y do harmless things.</td></tr>
+          <tr><td>The menu pops up when you Alt+Tab</td><td>Normal: the game pauses when it loses focus</td><td>Close it with <kbd>O</kbd>.</td></tr>
+          <tr><td>Nothing happens, no fade to black</td><td>Wrong spot, R2 released, a key missed, or the menu closed</td><td>Check below.</td></tr>
+        </tbody>
+      </table></div>
+      <h3>If the code still does nothing</h3>
+      <ul>
+        <li>Are you in the prologue arena, after the 9S conversation, between the two sets of three barrels, and not in the factory?</li>
+        <li>Was R2 held <em>before</em> the first <kbd>I</kbd> and until the end? Test that with the Z Axis bar in <a href="#step-test">step 7</a>.</li>
+        <li>Did you press the second <kbd>I</kbd>? The sequence is I, K, I, L, J, U, O, Y, H.</li>
+        <li>Did you open any menu during the sequence? Do not.</li>
+        <li>Did 2B drift out of place? Compare the two screenshots below. In the second one she ended up well away from the barrels after pressing R2.</li>
+      </ul>
+      <figure class="fig"><img src="images/barrels-stand-here.webp" alt="2B standing between the two sets of three barrels with her pod hovering above" width="1400" height="787" loading="lazy"><figcaption>Correct position: centred between the two sets of three barrels.</figcaption></figure>
+      <figure class="fig"><img src="images/barrels-out-of-circle.webp" alt="2B standing in the open area away from the barrels, with the barrels visible behind her to the left" width="1400" height="787" loading="lazy"><figcaption>A failed attempt: 2B pushed out into the open arena after pressing R2. She was too far from the spot for the code.</figcaption></figure>
+    </section>
+
+    <section id="proof">
+      <h2>Proof from the game’s code</h2>
+      <p>These are the notes behind the guide. They matter only if you want to check our claims or adapt the method to another build. Everything here was read from the running game and nothing was written to it.</p>
+      <details>
+        <summary>What the cheat function does in our build</summary>
+        <div class="inner">
+          <p>We found the function by searching the game’s memory for the two coordinate values in Lance’s notes. The numbers below are from the Steam build whose <code>NieRAutomata.exe</code> image size is <code>0x18f7000</code>. They will differ in other builds.</p>
+          <div class="tbl"><table>
+            <thead><tr><th>Check</th><th>What we found</th></tr></thead>
+            <tbody>
+              <tr><td>Game state</td><td>A state value must equal <code>0x100</code> (it read <code>0x100</code> in gameplay)</td></tr>
+              <tr><td>Map</td><td>The current map name must match <code>00_80_A_RobotM_Pro_1stArea</code></td></tr>
+              <tr><td>R2</td><td>Bit <code>0x4000</code> must be set in a held-button value</td></tr>
+              <tr><td>Position</td><td>Within 1.5 of X = −665 and Z = <strong>473.69</strong>. Height is ignored. Lance’s notes show 493.69 for Z, so his build differed or his notes had a typo.</td></tr>
+              <tr><td>Presses</td><td>Each new button press is stored in a list that holds up to 20. A timer restarts on every press and clears the list after 5 seconds without one.</td></tr>
+              <tr><td>Match</td><td>The last nine presses are compared with a stored code (below)</td></tr>
+              <tr><td>Result</td><td>On a match the game loads the ending scene named <code>BackTitle_FIN</code></td></tr>
+            </tbody>
+          </table></div>
+          <p>The stored code was found in memory as nine values: <code>8 4 8 2 1 40 20 80 10</code>.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Button values the game sees</summary>
+        <div class="inner">
+          <p>These came from logging the game’s input values while pressing each key with the virtual controller running. The names are our reading from the order we pressed them.</p>
+          <div class="tbl"><table>
+            <thead><tr><th>Value</th><th>Button</th><th>Key we used</th></tr></thead>
+            <tbody>
+              <tr><td><code>0x8</code></td><td>D-pad up</td><td>I</td></tr>
+              <tr><td><code>0x4</code></td><td>D-pad down</td><td>K</td></tr>
+              <tr><td><code>0x1</code></td><td>D-pad left</td><td>J</td></tr>
+              <tr><td><code>0x2</code></td><td>D-pad right</td><td>L</td></tr>
+              <tr><td><code>0x40</code></td><td>X (Square)</td><td>U</td></tr>
+              <tr><td><code>0x20</code></td><td>B (Circle)</td><td>O</td></tr>
+              <tr><td><code>0x80</code></td><td>Y (Triangle)</td><td>Y</td></tr>
+              <tr><td><code>0x10</code></td><td>A (Cross)</td><td>H</td></tr>
+              <tr><td><code>0x200</code></td><td>Back</td><td>G</td></tr>
+              <tr><td><code>0x4000</code></td><td>Right trigger (R2)</td><td>Middle mouse</td></tr>
+            </tbody>
+          </table></div>
+          <p>Run with the keyboard only (no virtual controller), the same values never changed.</p>
+        </div>
+      </details>
+      <details open>
+        <summary>The successful run, from the log</summary>
+        <div class="inner">
+          <p>Lines from the live log of the run that worked. The notes on the right were added by hand. The counter is the number of presses the cheat has recorded (the R2 press counts as the first), and it only moves when every check above has passed.</p>
+<pre class="codeplain" style="margin:0 0 1rem;padding:1rem;overflow-x:auto;background:var(--bg-deep);border:1px solid var(--line);font:400 .85rem/1.55 'JetBrains Mono',ui-monospace,Consolas,monospace;">t=  2.144  masks held=00004000 pressed=00004000  held+4000   R2 down
+t=  2.144  cand0 count 0 -> 1
+t=  3.989  masks held=00004008 pressed=00000008  held+8      Up
+t=  4.005  cand0 count 1 -> 2
+t=  4.881  masks held=00004004 pressed=00000004  held+4      Down
+t=  4.881  cand0 count 2 -> 3
+t=  5.723  masks held=00004008 pressed=00000008  held+8      Up
+t=  5.723  cand0 count 3 -> 4
+t=  6.549  masks held=00004002 pressed=00000002  held+2      Right
+t=  6.549  cand0 count 4 -> 5
+t=  7.345  masks held=00004001 pressed=00000001  held+1      Left
+t=  7.345  cand0 count 5 -> 6
+t=  8.109  masks held=00004040 pressed=00000040  held+40     X (Square)
+t=  8.109  cand0 count 6 -> 7
+t=  8.922  masks held=00004020 pressed=00000020  held+20     B (Circle)
+t=  8.938  cand0 count 7 -> 8
+t= 10.734  masks held=00004080 pressed=00000080  held+80     Y (Triangle)
+t= 10.734  cand0 count 8 -> 9
+t= 11.347  masks held=00004010 pressed=00000010  held+10     A (Cross)
+t= 11.347  cand0 count 9 -> 10
+t= 11.347  cand0 FIRED flag 0 -> 1
+t= 13.915  state f64a90 = 00000f10                           ending loading</pre>
+          <p>Bit <code>0x4000</code> (R2) stays set in every “held” value, the counter climbs from 1 to 10, and a “fired” flag flips on the ninth button.</p>
+        </div>
+      </details>
+      <details>
+        <summary>The scripts we used</summary>
+        <div class="inner">
+          <p>Three small Python scripts read the game’s memory without writing to it. They need Python 64-bit and install <code>pymem</code> and <code>capstone</code> on first run. The addresses inside them are for the build described above and the scripts refuse to run on a different one.</p>
+          <ul>
+            <li><a href="tools/find_cheat_code_v2.py">find_cheat_code_v2.py</a> finds the cheat function by its coordinate constants and writes a disassembly report.</li>
+            <li><a href="tools/watch_cheat_inputs.py">watch_cheat_inputs.py</a> logs the held and pressed button values the cheat reads.</li>
+            <li><a href="tools/watch_cheat_manager.py">watch_cheat_manager.py</a> finds the cheat object and logs its press counter, timer and fired flag.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section id="cleanup">
+      <h2>Undo everything</h2>
+      <ol class="steps">
+        <li><strong>UCR:</strong> press Stop, close it, and delete its folder.</li>
+        <li><strong>Interception:</strong> open an admin terminal in the installer folder and run the same command with <code>/uninstall</code>, then restart Windows.</li>
+      </ol>
+      <div class="codeblock"><pre>&amp; "C:\Users\YOU\Desktop\Interception\command line installer\install-interception.exe" /uninstall</pre><button class="copy" type="button">Copy</button></div>
+      <ol class="steps" start="3">
+        <li><strong>ViGEmBus:</strong> in Windows Settings, open Apps, find the ViGEm / Nefarius entry, and uninstall it.</li>
+        <li><strong>The game:</strong> if you use Special K, rename <code>dxgi.dll.off</code> back to <code>dxgi.dll</code>. Switch the controls layout back from Custom.</li>
+      </ol>
+    </section>
+
+    <section id="credits">
+      <h2>Credits and disclaimer</h2>
+      <ul>
+        <li>The cheat code was discovered by <strong>Lance McDonald</strong>. <a href="https://www.youtube.com/watch?v=nj95Gumb-_8">His video</a> explains how he found it.</li>
+        <li><a href="https://github.com/nefarius/ViGEmBus">ViGEmBus</a> by Nefarius, <a href="https://github.com/Snoothy/UCR">UCR</a> by Snoothy, and <a href="https://github.com/oblitum/Interception">Interception</a> by Francisco Lopes. Interception is free for non-commercial use, and its author sells commercial licences. Link to the official pages instead of re-hosting the files.</li>
+        <li>On the save-deletion prompt: <a href="https://twinfinite.net/guides/nier-automata-how-to-use-cheat-codes-to-skip-to-the-ending/">Twinfinite</a>, <a href="https://kotaku.com/nier-automata-dumped-me-and-i-m-okay-with-it-1846036247">Kotaku</a> and a <a href="https://steamcommunity.com/app/524220/discussions/0/135512625256586835">Steam Community discussion</a>.</li>
+      </ul>
+      <div class="callout warn">
+        <p class="tag">Use at your own risk</p>
+        <p>This is an unofficial fan guide. It is not affiliated with Square Enix, PlatinumGames or Lance McDonald. It installs third-party drivers and uses a cheat that can lead to deleting save data. It is meant for single-player use. Back up your saves first, and do not use these tools in online games.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="band" aria-hidden="true"></div>
+  <div class="foot-inner">
+    <p>Last updated 30 October 2026. Tested on one Steam build of the Game of the Year edition, so results on other versions may differ.</p>
+  </div>
+</footer>
+
+<dialog id="lightbox" aria-label="Enlarged screenshot">
+  <img alt="">
+  <p></p>
+</dialog>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* Theme toggle */
+  var btn = document.getElementById("themeBtn");
+  function label() { btn.textContent = root.dataset.theme === "light" ? "Dark theme" : "Light theme"; }
+  label();
+  btn.addEventListener("click", function () {
+    var next = root.dataset.theme === "light" ? "dark" : "light";
+    root.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    label();
+  });
+
+  /* Contents: open on wide screens, collapsed on narrow ones */
+  var toc = document.querySelector("details.toc");
+  var mq = window.matchMedia("(min-width: 901px)");
+  function syncToc() { toc.open = mq.matches; }
+  syncToc();
+  if (mq.addEventListener) mq.addEventListener("change", syncToc);
+
+  /* Highlight the current section in the contents */
+  var links = {};
+  document.querySelectorAll(".toc a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  if ("IntersectionObserver" in window) {
+    var current = null;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          if (current) current.classList.remove("active");
+          current = links[e.target.id];
+          if (current) current.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-15% 0px -75% 0px" });
+    document.querySelectorAll("main section[id]").forEach(function (s) { io.observe(s); });
+  }
+
+  /* Copy buttons */
+  document.querySelectorAll(".copy").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var text = b.parentNode.querySelector("pre").innerText.trim();
+      var done = function () { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () {});
+      } else {
+        var ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
+  /* Click a screenshot to enlarge it */
+  var box = document.getElementById("lightbox");
+  if (box && box.showModal) {
+    var big = box.querySelector("img"), cap = box.querySelector("p");
+    document.querySelectorAll(".fig img").forEach(function (img) {
+      img.addEventListener("click", function () {
+        big.src = img.currentSrc || img.src; big.alt = img.alt;
+        var fc = img.parentNode.querySelector("figcaption"); cap.textContent = fc ? fc.textContent : "";
+        box.showModal();
+      });
+    });
+    box.addEventListener("click", function () { box.close(); });
+  }
+})();
+</script>
+</body>
+</html>

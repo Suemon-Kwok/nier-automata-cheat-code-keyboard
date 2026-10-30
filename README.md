@@ -6,7 +6,7 @@ final ending.
 
 **Read the guide: <https://suemon-kwok.github.io/nier-automata-cheat-code-keyboard/>**
 
-Video walkthrough: <https://www.youtube.com/watch?v=YOUR_VIDEO_ID>
+Video walkthrough: <https://www.youtube.com/watch?v=OqM3SmNnpwQ>
 
 ## The short version
 
